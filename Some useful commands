@@ -32,4 +32,6 @@ to close type 'exit' or press ctrl+D
 
 
 scp filename.py user@10.5.32.5:/home/user/catkin_ws/src  # to copy file
-scp -r /user/location/folder user@10.5.32.5:/home/user/catkin_ws/src #to copy folder
+ash@ash-automato: scp -r user@10.5.32.5:/home/user/Ash/scripts/trajecotry_recorder/yellow_left /home/ash/Ash/scripts/TrajectoryRecorder/Trajectories_bag
+(My system is ash@ash-automato. scp = secure copy. user@10.5.32.5 is the remote system. yellow_left is a folder on the remote system. Trajectories_bag is a directory on my system)
+
