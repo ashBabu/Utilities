@@ -1,0 +1,35 @@
+# catkin_create_pkg simple_file geometry_msgs move_base_msgs actionlib roscpp rospy std_msgs
+
+rosrun xacro xacro --inorder -o model.urdf model.urdf.xacro  # To convert xacro to urdf
+rosrun tf tf_echo /parent /child_frame # To get the transformation between parent and child frame
+
+#CmakeList executable
+if you have a CMakeLists.txt, cd to the directory and use 'cmake CMakeLists.txt' in terminal first and then 'make' to get the executable file. Note that the CMakeLists.txt should contain a file_name.cpp whose contents are to be there inside the same folder containing CMakeLists.txt as a separate file
+
+pcl_viewer -multiview 1 chef.pcd
+
+inverse kinematics in moveit is computed using the "compute_ik" service call. The compute_ik is defined as IK_SERVICE_NAME in the file capability_names.h (/src/moveit/moveit_ros/move_group/include/moveit/move_group) and it calls the kinematics_service_capability.cpp(/src/moveit/moveit_ros/move_group/src/default_capabilities) which has the function definition for IK.
+
+
+# To kill a program named controller.py or any
+$ ps ax |grep controller.py
+output: 16768 pts/17   Sl+    0:00 python controller.py
+
+$ kill -9 16768
+
+
+
+#How to install C++ programs in linux
+Extract the contents and change in the directory
+./configure
+make
+sudo make install
+
+SSH connection to franka2
+ssh user@10.5.32.5
+give the password: pe****n
+to close type 'exit' or press ctrl+D
+
+
+scp filename.py user@10.5.32.5:/home/user/catkin_ws/src  # to copy file
+scp -r /user/location/folder user@10.5.32.5:/home/user/catkin_ws/src #to copy folder
