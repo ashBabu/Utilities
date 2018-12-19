@@ -1,17 +1,18 @@
-# catkin_create_pkg simple_file geometry_msgs move_base_msgs actionlib roscpp rospy std_msgs
+catkin_create_pkg simple_navigation_goals geometry_msgs move_base_msgs actionlib roscpp rospy std_msgs
 
 rosrun xacro xacro --inorder -o model.urdf model.urdf.xacro  # To convert xacro to urdf
 rosrun tf tf_echo /parent /child_frame # To get the transformation between parent and child frame
 
-#CmakeList executable
 if you have a CMakeLists.txt, cd to the directory and use 'cmake CMakeLists.txt' in terminal first and then 'make' to get the executable file. Note that the CMakeLists.txt should contain a file_name.cpp whose contents are to be there inside the same folder containing CMakeLists.txt as a separate file
 
 pcl_viewer -multiview 1 chef.pcd
 
+panda_moveit_config/config/ has kinematics.yaml and kinematics_trackIK.yaml
+
 inverse kinematics in moveit is computed using the "compute_ik" service call. The compute_ik is defined as IK_SERVICE_NAME in the file capability_names.h (/src/moveit/moveit_ros/move_group/include/moveit/move_group) and it calls the kinematics_service_capability.cpp(/src/moveit/moveit_ros/move_group/src/default_capabilities) which has the function definition for IK.
 
 
-# To kill a program named controller.py or any
+
 $ ps ax |grep controller.py
 output: 16768 pts/17   Sl+    0:00 python controller.py
 
@@ -19,7 +20,7 @@ $ kill -9 16768
 
 
 
-#How to install C++ programs in linux
+How to install C++ programs in linux
 Extract the contents and change in the directory
 ./configure
 make
@@ -27,11 +28,16 @@ sudo make install
 
 SSH connection to franka2
 ssh user@10.5.32.5
-give the password: pe****n
+give the password: penguin
 to close type 'exit' or press ctrl+D
 
 
 scp filename.py user@10.5.32.5:/home/user/catkin_ws/src  # to copy file
-ash@ash-automato: scp -r user@10.5.32.5:/home/user/Ash/scripts/trajecotry_recorder/yellow_left /home/ash/Ash/scripts/TrajectoryRecorder/Trajectories_bag
-(My system is ash@ash-automato. scp = secure copy. user@10.5.32.5 is the remote system. yellow_left is a folder on the remote system. Trajectories_bag is a directory on my system)
+scp -r /user/location/folder user@10.5.32.5:/home/user/catkin_ws/src #to copy folder
 
+convert figure_9-1.png -trim +repage a.png  % To crop image
+
+% To convert one video format to other
+ffmpeg -i input.wmv -s size output.mp4   
+(size could be
+ qcif 176x144, cif 352x288, 4cif 704x576, 16cif i408x1152, qqvga 160x120, qvga 320x240, vga 640x480, svga 800x600, xga 1024x768, uxga 1600x1200, qxga 2048x1536, sxga 1280x1024, qsxga 2560x2048, hsxga   5120x4096, wvga 852x480, wxga 1366x768, wsxga 1600x1024, wuxga 1920x1200, woxga 2560x1600, wqsxga   3200x2048, wquxga 3840x2400 )
