@@ -28,4 +28,4 @@ The program rosbag_filter or time_jumper solves that
 1. ``` rosbag record /ceiling_camera/qhd/points --output-name=ceiling_cam_qhd_points ``` # /ceiling_camera/qhd/points is my pointCloud2 topic name
 2. ``` python pointcloud_as_obstacle.py ``` # saves the time filtered pointCloud2 into ceiling_camera_qhd_points_filtered.bag
 3. ``` rosbag play -l --clock ceiling_camera_qhd_points_filtered.bag ```
-4. ``` roslaunch panda_moveit_config demo_promp.launch ``` # In here set param sim_time = true
+4. ``` roslaunch panda_moveit_config demo_promp.launch ``` 
