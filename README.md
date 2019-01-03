@@ -22,5 +22,10 @@ The program collision_chk_franka shows the implementation of how to use the Stat
 
 ### Time jumping solution while playing rosbag TF_old data etc
 
-The program rosbag_filter solves that
+The program rosbag_filter or time_jumper solves that
 
+### Record rosbag pointCloud2 topics and show as obstacles in Rviz
+1. ``` rosbag record /ceiling_camera/qhd/points --output-name=ceiling_cam_qhd_points ``` # /ceiling_camera/qhd/points is my pointCloud2 topic name
+2. ``` python pointcloud_as_obstacle.py ``` # saves the time filtered pointCloud2 into ceiling_camera_qhd_points_filtered.bag
+3. ``` rosbag play -l --clock ceiling_camera_qhd_points_filtered.bag ```
+4. ``` roslaunch panda_moveit_config demo_promp.launch ``` # In here set param sim_time = true
