@@ -1,0 +1,50 @@
+<launch>
+<!-- Human Motion -->
+<arg name="human_motion" default="FIGURE8"/>
+
+<!-- Sensor Configuration -->
+<arg name="sensor_fps" default="25"/>
+<arg name="sensor_bearing_res" default="0.0175"/>
+<arg name="sensor_range_res" default="0.05"/>
+<arg name="sensor_range_max" default="50"/>
+<arg name="sensor_range_noise_std" default="0.5"/>
+<arg name="sensor_bearing_noise_std" default="0.05"/>
+
+<!-- Tracking Configuration -->
+<arg name="cv_noise_x" default="2.4"/>
+<arg name="cv_noise_y" default="2.4"/>
+<arg name="obsv_model" default="CARTESIAN"/>
+<arg name="obsv_noise_x" default="0.9"/>
+<arg name="obsv_noise_y" default="0.9"/>
+
+<node pkg="tf" type="static_transform_publisher" name="base_link_to_odom_combined" args="0 0 0 0 0 0 1 base_link odom_combined 10"/>
+<!-- Virtual People GT -->
+<node pkg="bayes_people_tracker" type="virtual_people_gt.py" name="virtual_people_gt" output="screen" required="true">
+    <param name="human_motion" value="$(arg human_motion)" type="string"/>
+</node>
+
+<!-- Virtual People Detector -->
+<node pkg="bayes_people_tracker" type="virtual_people_detector.py" name="virtual_people_detector" output="screen" respawn="true">
+    <param name="sensor_fps" value="$(arg sensor_fps)" type="int"/>
+    <param name="sensor_bearing_res" value="$(arg sensor_bearing_res)" type="double"/>
+    <param name="sensor_range_res" value="$(arg sensor_range_res)" type="double"/>
+    <param name="sensor_range_max" value="$(arg sensor_range_max)" type="int"/>
+    <param name="sensor_range_noise_std" value="$(arg sensor_range_noise_std)" type="double"/>
+    <param name="sensor_bearing_noise_std" value="$(arg sensor_bearing_noise_std)" type="double"/>
+</node>
+
+
+<!-- NBellotto's Bayes People Tracker -->
+<rosparam command="load" file="$(find bayes_people_tracker)/config/detectors_simulation.yaml"/>
+<node pkg="bayes_people_tracker" type="bayes_people_tracker" name="bayes_people_tracker" output="screen" respawn="true"> 
+    <param name="detectors/virtual_people_detector/observation_model" value="$(arg obsv_model)" type="string"/>
+    <param name="detectors/virtual_people_detector/noise_params/x" value="$(arg obsv_noise_x)" type="double"/>
+    <param name="detectors/virtual_people_detector/noise_params/y" value="$(arg obsv_noise_y)" type="double"/>
+    <param name="cv_noise_params/x" value="$(arg cv_noise_x)" type="double"/>
+    <param name="cv_noise_params/y" value="$(arg cv_noise_y)" type="double"/>
+</node>
+
+    <!-- <arg name="recordbag" default="/home/flobot/Downloads/Tracking_Simulation/exp_$(arg human_motion)_sensorfps-$(arg sensor_fps)_sensorres-$(arg sensor_bearing_res)-$(arg sensor_range_res)_sensornoisestd-$(arg sensor_bearing_noise_std)-$(arg sensor_range_noise_std)_$(arg obsv_model)_noise-$(arg obsv_noise_x)-$(arg obsv_noise_y)_cvnoise-$(arg cv_noise_x).bag"/>
+    <node pkg="rosbag" type="record" name="rosbag_record" args="-O $(arg recordbag) -a"/> -->
+
+</launch>	
