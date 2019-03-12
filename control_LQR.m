@@ -32,7 +32,7 @@ step(sys, 10)
 %%%%%%%%%%%%%%%% Verbose mode: how to plot output response %%%%%%%%%%%%%%%%
 syms s
 x0 = [0.01; 0.01; 0; 0; 0; 0];   % initial condition
-X_zs = (s*eye(6) - A)\B* (1/s);  % Unit step response.  This is called zerso state response
+X_zs = (s*eye(6) - A)\B* (1/s);  % Unit step response.  This is called zerso state response. The matrix (sI - A)^-1 is the state transition matrix, e^(A*t)
 X_zi = (s*eye(6) - A)\x0;       % This is zero input response
 out = C * ( ilaplace(X_zs) + ilaplace(X_zi) ); % since system is linearized, output = X_zs + X_zi (super position principle)
 
