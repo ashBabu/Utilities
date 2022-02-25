@@ -1,7 +1,7 @@
 - name: Home
   link: /Utilities
 - name: About
-  link: /Utilities/about.html
+  link: /Utilities/docs/about.html
 - name: Blog
   link: /Utilities/blog.html
 - name: Staff
