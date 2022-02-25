@@ -3,6 +3,6 @@
 - name: About
   link: /Utilities/docs/about.html
 - name: Blog
-  link: /Utilities/blog.html
+  link: /Utilities/docs/blog.html
 - name: Staff
-  link: /Utilities/staff.html
+  link: /Utilities/docs/staff.html
