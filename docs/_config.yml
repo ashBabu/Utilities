@@ -33,4 +33,5 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
-remote_theme: carlosperate/jekyll-theme-rtd
+# remote_theme: carlosperate/jekyll-theme-rtd
+remote_theme: pmarsceill/just-the-docs
