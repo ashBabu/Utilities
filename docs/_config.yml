@@ -34,4 +34,5 @@ plugins:
   - jekyll-seo-tag
 
 # remote_theme: carlosperate/jekyll-theme-rtd
-remote_theme: pmarsceill/just-the-docs
+# remote_theme: pmarsceill/just-the-docs
+theme: Slate
