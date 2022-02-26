@@ -1,8 +1,8 @@
 - name: Home
   link: /Utilities
 - name: About
-  link: /Utilities/docs/about.html
+  link: /Utilities/about.html
 - name: Blog
-  link: /Utilities/docs/blog.html
+  link: /Utilities/blog.html
 - name: Staff
-  link: /Utilities/docs/staff.html
+  link: /Utilities/staff.html
