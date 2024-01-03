@@ -1,15 +1,13 @@
-ros2 pkg create pkg_name --build-type ament_python --dependencies rclpy  # for python
-ros2 pkg create pkg_name --build-type ament_cmake --dependencies rclcpp
+`ros2 pkg create pkg_name --build-type ament_python --dependencies rclpy`  # for python
 
-pip3 install setuptools==58.2.0
-colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja
-colcon build --symlink-install --packages-select sound_play
+`ros2 pkg create pkg_name --build-type ament_cmake --dependencies rclcpp`
 
+`pip3 install setuptools==58.2.0`
 
-ADE
-ros-humble-rtabmap
-ros-humble-realsense2-description
-ros-humble-realsense2-camera
+`colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja`
+
+`colcon build --symlink-install --packages-select sound_play`
+
 
 docker build -t ghcr.io/theia-robotics/ade-image ade-image
 
@@ -20,23 +18,21 @@ ros2 run rviz2 rviz2
 
 sudo apt-get install -y  libsdl2-dev libsdl2-mixer-dev libsdl2-mixer-2.0-0 
 
-        // TODO: find the best QOS (KeepLast 10 or less?)
-
 Copyright statement: Nobody is allowed to copy, use or distribute this code other than Theia Guidance System employees
 
 
 
 ### ADE usage
-`cd theia_home/theia`
-`./start=ade`
-`sudo apt update`
-`cd ../ros2_ws`
-`rosdep install --from-paths src --ignore-src -r -y`
-`colcon build --symlink-install`
-`source install/setup.bash`
-`ros2 launch theia_obstacle_detection bringup.launch.xml`
+* `cd theia_home/theia`
+* `./start-ade`
+* `sudo apt update`
+* `cd ../ros2_ws`
+* `rosdep install --from-paths src --ignore-src -r -y`
+* `colcon build --symlink-install`
+* `source install/setup.bash`
+* `ros2 launch theia_obstacle_detection bringup.launch.xml`
 
-ros2 launch urdf_tutorial display.launch.py model:=/home/ash/cr_ws/src/continuum_robot/urdf/snake_robot.xacro.urdf rvizconfig:=/home/ash/cr_ws/src/continuum_robot/rviz/sr_robot1.rviz
+* `ros2 launch urdf_tutorial display.launch.py model:=/home/ash/cr_ws/src/continuum_robot/urdf/snake_robot.xacro.urdf rvizconfig:=/home/ash/cr_ws/src/continuum_robot/rviz/sr_robot1.rviz`
 
 
 * `sudo arp-scan -l`
