@@ -2,7 +2,7 @@ pandas==1.0.3
 #dropbox==10.4.1
 opencv-python
 numpy==1.22.0
-PyYAML==5.3.1
+PyYAML==5.4
 pycryptodomex==3.9.8
 gnupg==2.3.1
 #imageio-ffmpeg==0.4.2
