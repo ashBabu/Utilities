@@ -3,7 +3,7 @@ pandas==1.0.3
 opencv-python
 numpy==1.22.0
 PyYAML==5.4
-pycryptodomex==3.9.8
+pycryptodomex==3.19.1
 gnupg==2.3.1
 #imageio-ffmpeg==0.4.2
 #imageio==2.8.0
