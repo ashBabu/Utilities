@@ -1,13 +1,4 @@
 pandas==1.0.3
-#dropbox==10.4.1
 opencv-python
-numpy==1.22.0
-PyYAML==5.4
-pycryptodomex==3.9.8
-gnupg==2.3.1
-#imageio-ffmpeg==0.4.2
-#imageio==2.8.0
-#boto3==1.16.5
-tqdm==4.46.0
-h5py==2.10.0
-stopwatch.py==1.0.1
+numpy==1.18.3
+PyYAML==5.3.1

@@ -22,4 +22,8 @@ Homepage = "https://github.com/pypa/sampleproject"
 Issues = "https://github.com/pypa/sampleproject/issues"
 
 [project.scripts]
-ros2image = "ros2image.ros2image-entrypoint:main"  # any-name = package-name.module.function
+ros2image = "ros2image.ros2image_entrypoint:main"  # any-name = package-name.module.function
+
+[tool.setuptools.packages.find]
+include = ["ros2image*"]
+namespaces = false

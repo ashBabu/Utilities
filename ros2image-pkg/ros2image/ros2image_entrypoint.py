@@ -1,9 +1,7 @@
 import os
-import gc
-import sys
 import yaml
 import argparse
-sys.path.insert(0, '../../api/')
+# from utils import process_images
 from ros2image.utils import process_images
 
 
@@ -17,7 +15,7 @@ def main():
     try:
         parser = argparse.ArgumentParser(description="provide yaml config file to class")
         requiredNamed = parser.add_argument_group('required named arguments')
-        requiredNamed.add_argument("-p", "--path", dest="path",
+        requiredNamed.add_argument("-c", "--path", dest="path",
                                    type=lambda x: is_valid_file(parser, x),
                                    help="full path to config file for producing the report and plots",
                                    required=True)
@@ -27,7 +25,6 @@ def main():
             ros2image_config = yaml.load(config_loader, Loader=yaml.FullLoader)
         # Process images across all cores
         process_images.main(ros2image_config)
-        gc.collect()
 
     except Exception as e:
         print(e)
