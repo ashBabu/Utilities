@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: continuum_robot
+    relative_path: urdf/snake_robot.xacro.urdf
+  srdf:
+    relative_path: config/continuum_robot.srdf
+  package_settings:
+    author_name: ashb
+    author_email: ashb@gmail.com
+    generated_timestamp: 1719406795
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

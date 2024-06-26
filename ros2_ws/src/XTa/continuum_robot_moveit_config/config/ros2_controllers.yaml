@@ -1,0 +1,37 @@
+# This config file is used by ros2_control
+controller_manager:
+  ros__parameters:
+    update_rate: 1000  # Hz
+
+    xta_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+xta_arm_controller:
+  ros__parameters:
+    joints:
+      - sr_joint1
+      - sr_joint2
+      - sr_joint3
+      - sr_ee_joint1
+      - sr_ee_joint2
+      - sr_ee_joint3
+      - sr_ee_joint4
+      - sr_ee_joint5
+      - sr_ee_joint6
+      - sr_ee_joint7
+      - sr_ee_joint8
+      - sr_ee_joint9
+      - sr_ee_joint10
+      - sr_ee_joint11
+      - sr_ee_joint12
+      - sr_ee_joint13
+      - sr_ee_joint14
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity

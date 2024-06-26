@@ -1,0 +1,20 @@
+# Default initial positions for continuum_robot's ros2_control fake system
+
+initial_positions:
+  sr_ee_joint1: 0
+  sr_ee_joint10: 0
+  sr_ee_joint11: 0
+  sr_ee_joint12: 0
+  sr_ee_joint13: 0
+  sr_ee_joint14: 0
+  sr_ee_joint2: 0
+  sr_ee_joint3: 0
+  sr_ee_joint4: 0
+  sr_ee_joint5: 0
+  sr_ee_joint6: 0
+  sr_ee_joint7: 0
+  sr_ee_joint8: 0
+  sr_ee_joint9: 0
+  sr_joint1: 0
+  sr_joint2: 0
+  sr_joint3: 0

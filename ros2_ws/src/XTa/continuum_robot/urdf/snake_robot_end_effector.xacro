@@ -1,0 +1,133 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+<!--    <xacro:include filename="$(find continuum_robot)/urdf/snake_robot.xacro"/>-->
+    <xacro:property name="radius" value="0.05" />
+    <xacro:property name="length" value="0.07" />
+
+    <xacro:macro name="sr_ee_module">  <!-- only for cylinder -->
+        <!-- 1 -->
+        <link name="sr_ee_link1">
+            <xacro:sr_link_module radius="${radius}" length="${length}" xyz="0 0 ${length/2}" rpy="0 0 0" mass="0.005"/>
+        </link>
+        <joint name="sr_ee_joint1" type="revolute">
+            <xacro:sr_joint rpy="0 0 0" xyz="0 0 ${l2_length + offset}" parent="sr_link3" child="sr_ee_link1" axis="0 1 0" />
+        </joint>
+
+        <!-- 2 -->
+        <link name="sr_ee_link2">
+            <xacro:sr_link_module radius="${radius}" length="${length}" xyz="0 0 ${length/2}" rpy="0 0 0" mass="0.005"/>
+        </link>
+        <joint name="sr_ee_joint2" type="revolute">
+            <xacro:sr_joint rpy="0 0 0" xyz="0 0 ${length + offset}" parent="sr_ee_link1" child="sr_ee_link2" axis="1 0 0" />
+        </joint>
+
+        <!-- 3 -->
+        <link name="sr_ee_link3">
+            <xacro:sr_link_module radius="${radius}" length="${length}" xyz="0 0 ${length/2}" rpy="0 0 0" mass="0.005"/>
+        </link>
+        <joint name="sr_ee_joint3" type="revolute">
+            <xacro:sr_joint rpy="0 0 0" xyz="0 0 ${length + offset}" parent="sr_ee_link2" child="sr_ee_link3" axis="0 0 1" />
+        </joint>
+
+        <!-- 4 -->
+        <link name="sr_ee_link4">
+            <xacro:sr_link_module radius="${radius}" length="${length}" xyz="0 0 ${length/2}" rpy="0 0 0" mass="0.005"/>
+        </link>
+        <joint name="sr_ee_joint4" type="revolute">
+            <xacro:sr_joint rpy="0 0 0" xyz="0 0 ${length + offset}" parent="sr_ee_link3" child="sr_ee_link4" axis="1 0 0" />
+        </joint>
+
+        <!-- 5 -->
+        <link name="sr_ee_link5">
+            <xacro:sr_link_module radius="${radius}" length="${length}" xyz="0 0 ${length/2}" rpy="0 0 0" mass="0.005"/>
+        </link>
+        <joint name="sr_ee_joint5" type="revolute">
+            <xacro:sr_joint rpy="0 0 0" xyz="0 0 ${length + offset}" parent="sr_ee_link4" child="sr_ee_link5" axis="0 1 0" />
+        </joint>
+
+        <!-- 6 -->
+        <link name="sr_ee_link6">
+            <xacro:sr_link_module radius="${radius}" length="${length}" xyz="0 0 ${length/2}" rpy="0 0 0" mass="0.005"/>
+        </link>
+        <joint name="sr_ee_joint6" type="revolute">
+            <xacro:sr_joint rpy="0 0 0" xyz="0 0 ${length + offset}" parent="sr_ee_link5" child="sr_ee_link6" axis="0 0 1" />
+        </joint>
+
+        <!-- 7 -->
+        <link name="sr_ee_link7">
+            <xacro:sr_link_module radius="${radius}" length="${length}" xyz="0 0 ${length/2}" rpy="0 0 0" mass="0.005"/>
+        </link>
+        <joint name="sr_ee_joint7" type="revolute">
+            <xacro:sr_joint rpy="0 0 0" xyz="0 0 ${length + offset}" parent="sr_ee_link6" child="sr_ee_link7" axis="0 1 0" />
+        </joint>
+
+        <!-- 8 -->
+        <link name="sr_ee_link8">
+            <xacro:sr_link_module radius="${radius}" length="${length}" xyz="0 0 ${length/2}" rpy="0 0 0" mass="0.005"/>
+        </link>
+        <joint name="sr_ee_joint8" type="revolute">
+            <xacro:sr_joint rpy="0 0 0" xyz="0 0 ${length + offset}" parent="sr_ee_link7" child="sr_ee_link8" axis="1 0 0" />
+        </joint>
+
+        <!-- 9 -->
+        <link name="sr_ee_link9">
+            <xacro:sr_link_module radius="${radius}" length="${length}" xyz="0 0 ${length/2}" rpy="0 0 0" mass="0.005"/>
+        </link>
+        <joint name="sr_ee_joint9" type="revolute">
+            <xacro:sr_joint rpy="0 0 0" xyz="0 0 ${length + offset}" parent="sr_ee_link8" child="sr_ee_link9" axis="0 0 1" />
+        </joint>
+
+        <!-- 10 -->
+        <link name="sr_ee_link10">
+            <xacro:sr_link_module radius="${radius}" length="${length}" xyz="0 0 ${length/2}" rpy="0 0 0" mass="0.005"/>
+        </link>
+        <joint name="sr_ee_joint10" type="revolute">
+            <xacro:sr_joint rpy="0 0 0" xyz="0 0 ${length + offset}" parent="sr_ee_link9" child="sr_ee_link10" axis="1 0 0" />
+        </joint>
+
+        <!-- 11 -->
+        <link name="sr_ee_link11">
+            <xacro:sr_link_module radius="${radius}" length="${length}" xyz="0 0 ${length/2}" rpy="0 0 0" mass="0.005"/>
+        </link>
+        <joint name="sr_ee_joint11" type="revolute">
+            <xacro:sr_joint rpy="0 0 0" xyz="0 0 ${length + offset}" parent="sr_ee_link10" child="sr_ee_link11" axis="0 1 0" />
+        </joint>
+
+        <!-- 12 -->
+        <link name="sr_ee_link12">
+            <xacro:sr_link_module radius="${radius}" length="${length}" xyz="0 0 ${length/2}" rpy="0 0 0" mass="0.005"/>
+        </link>
+        <joint name="sr_ee_joint12" type="revolute">
+            <xacro:sr_joint rpy="0 0 0" xyz="0 0 ${length + offset}" parent="sr_ee_link11" child="sr_ee_link12" axis="0 0 1" />
+        </joint>
+
+        <!-- 13 -->
+        <link name="sr_ee_link13">
+            <xacro:sr_link_module radius="${radius}" length="${length}" xyz="0 0 ${length/2}" rpy="0 0 0" mass="0.005"/>
+        </link>
+        <joint name="sr_ee_joint13" type="revolute">
+            <xacro:sr_joint rpy="0 0 0" xyz="0 0 ${length + offset}" parent="sr_ee_link12" child="sr_ee_link13" axis="1 0 0" />
+        </joint>
+
+        <!-- 14 -->
+        <link name="sr_ee_link14">
+            <xacro:sr_link_module radius="${radius}" length="${length}" xyz="0 0 ${length/2}" rpy="0 0 0" mass="0.005"/>
+        </link>
+        <joint name="sr_ee_joint14" type="revolute">
+            <xacro:sr_joint rpy="0 0 0" xyz="0 0 ${length + offset}" parent="sr_ee_link13" child="sr_ee_link14" axis="0 1 0" />
+        </joint>
+
+        <!-- 15 fixed -->
+        <link name="sr_ee_link15">
+            <xacro:sr_link_module radius="${radius + 0.1}" length="${length}" xyz="0 0 ${length/2}" rpy="0 0 0" mass="0.005"/>
+        </link>
+        <joint name="sr_ee_joint15" type="fixed">
+            <origin rpy="0 0 0" xyz="0 0 ${length + offset}"/>
+            <parent link="sr_ee_link14"/>
+            <child link="sr_ee_link15"/>
+        </joint>
+
+
+    </xacro:macro>
+
+</robot>

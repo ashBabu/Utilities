@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="continuum_robot">
+
+    <xacro:include filename="$(find continuum_robot)/urdf/snake_robot.xacro"/>
+
+    <!-- <link name="world"/> -->
+    <link name="sr_link0">
+        <xacro:sr_link_module radius="${l0_radius}" length="${l0_length}" xyz="0 0 0" rpy="0 0 0" mass="1"/>
+    </link>
+
+   <!--  <joint name="sr_joint0" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 ${l0_length/2}"/>
+        <parent link="world"/>
+        <child link="sr_link0"/>
+    </joint> -->
+
+    <link name="sr_link1">
+        <xacro:sr_link_module radius="${l1_radius}" length="${l1_length}" xyz="0 0 ${l1_length/2}" rpy="0 0 0" mass="0.05"/>
+    </link>
+
+    <joint name="sr_joint1" type="revolute">
+        <xacro:sr_joint rpy="0 0 0" xyz="0 0 ${l0_length/2 + offset}" parent="sr_link0" child="sr_link1" axis="0 0 1" />
+    </joint>
+
+    <link name="sr_link2">
+        <xacro:sr_link_module radius="${l2_radius}" length="${l2_length}" xyz="0 0 ${l2_length/2}" rpy="0 0 0" mass="0.05"/>
+    </link>
+
+    <joint name="sr_joint2" type="revolute">
+        <xacro:sr_joint rpy="0 0 0" xyz="0 0 ${l1_length + offset}" parent="sr_link1" child="sr_link2" axis="1 0 0" />
+    </joint>
+
+    <link name="sr_link3">
+        <xacro:sr_link_module radius="${l2_radius}" length="${l2_length}" xyz="0 0 ${l2_length/2}" rpy="0 0 0" mass="0.05"/>
+    </link>
+
+    <joint name="sr_joint3" type="revolute">
+        <xacro:sr_joint rpy="0 0 0" xyz="0 0 ${l2_length + offset}" parent="sr_link2" child="sr_link3" axis="0 1 0" />
+    </joint>
+
+<!--    start of snake robot end-effector-->
+
+    <xacro:include filename="$(find continuum_robot)/urdf/snake_robot_end_effector.xacro"/>
+    <xacro:sr_ee_module/>
+
+<!--    https://github.com/jhu-lcsr-forks/gazebo_ros_pkgs/blob/hydro-devel/gazebo_plugins/include/gazebo_plugins/gazebo_ros_moveit_planning_scene.h#L50-L82-->
+    <!-- <gazebo>
+        <plugin filename="libgazebo_ros_moveit_planning_scene.so" name="gazebo_ros_moveit_planning_scene">
+            <topicName>/planning_scene</topicName>
+            <sceneName>laboratory</sceneName>
+            <robotName>continuum_robot</robotName>
+            <updatePeriod>0.5</updatePeriod>
+        </plugin>
+    </gazebo> -->
+
+</robot>

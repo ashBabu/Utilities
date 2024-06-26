@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="continuum_robot">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import continuum_robot urdf file -->
+    <xacro:include filename="$(find continuum_robot)/urdf/snake_robot.xacro.urdf" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="continuum_robot_gazebo.ros2_control.xacro" />
+
+
+    <xacro:continuum_robot_ros2_control name="IgnitionSystem" initial_positions_file="$(arg initial_positions_file)"/>
+    <!-- <xacro:continuum_robot_ros2_control name="GazeboSimSystem" initial_positions_file="$(arg initial_positions_file)"/> -->
+    <!-- <xacro:continuum_robot_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/> -->
+
+    <gazebo>
+        <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
+            <parameters>$(find continuum_robot_moveit_config)/config/ros2_controllers.yaml</parameters>
+            <robot_param>robot_description</robot_param>
+            <robot_param_node>robot_state_publisher</robot_param_node>
+            <!-- <ros>
+                <namespace>arm_controller</namespace>
+            </ros> -->
+        </plugin>
+  </gazebo>
+
+</robot>

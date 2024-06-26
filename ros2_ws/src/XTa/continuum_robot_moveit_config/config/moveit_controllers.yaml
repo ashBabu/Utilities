@@ -1,0 +1,30 @@
+# MoveIt uses this configuration for controller management
+
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+moveit_simple_controller_manager:
+  controller_names:
+    - xta_arm_controller
+
+  xta_arm_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    joints:
+      - sr_joint1
+      - sr_joint2
+      - sr_joint3
+      - sr_ee_joint1
+      - sr_ee_joint2
+      - sr_ee_joint3
+      - sr_ee_joint4
+      - sr_ee_joint5
+      - sr_ee_joint6
+      - sr_ee_joint7
+      - sr_ee_joint8
+      - sr_ee_joint9
+      - sr_ee_joint10
+      - sr_ee_joint11
+      - sr_ee_joint12
+      - sr_ee_joint13
+      - sr_ee_joint14
