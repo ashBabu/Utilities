@@ -1,0 +1,162 @@
+rosbag2_bagfile_information:
+  compression_format: ''
+  compression_mode: ''
+  custom_data: {}
+  duration:
+    nanoseconds: 2991410606
+  files:
+  - duration:
+      nanoseconds: 2991410606
+    message_count: 1058
+    path: 101.db3
+    starting_time:
+      nanoseconds_since_epoch: 1713783501851196686
+  message_count: 1058
+  relative_file_paths:
+  - 101.db3
+  ros_distro: rosbags
+  starting_time:
+    nanoseconds_since_epoch: 1713783501851196686
+  storage_identifier: sqlite3
+  topics_with_message_count:
+  - message_count: 104
+    topic_metadata:
+      name: /pc_900_transformed
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: sensor_msgs/msg/PointCloud2
+      type_description_hash: RIHS01_9198cabf7da3796ae6fe19c4cb3bdd3525492988c70522628af5daa124bae2b5
+  - message_count: 110
+    topic_metadata:
+      name: /rosout
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: rosgraph_msgs/msg/Log
+      type_description_hash: RIHS01_b5b2c2cc0b32a8673810d3d77306a22cf8667a40ddbd92214b9d73dfd483b729
+  - message_count: 110
+    topic_metadata:
+      name: /rosout_agg
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: rosgraph_msgs/msg/Log
+      type_description_hash: RIHS01_b5b2c2cc0b32a8673810d3d77306a22cf8667a40ddbd92214b9d73dfd483b729
+  - message_count: 300
+    topic_metadata:
+      name: /hai_xsens/filter/orientation_ros
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: sensor_msgs/msg/Imu
+      type_description_hash: RIHS01_7d9a00ff131080897a5ec7e26e315954b8eae3353c3f995c55faf71574000b5b
+  - message_count: 105
+    topic_metadata:
+      name: /hai_900_18/scan
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: sensor_msgs/msg/LaserScan
+      type_description_hash: RIHS01_64c191398013af96509d518dac71d5164f9382553fce5c1f8cca5be7924bd828
+  - message_count: 15
+    topic_metadata:
+      name: /tf2_web_republisher/status
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: actionlib_msgs/msg/GoalStatusArray
+      type_description_hash: RIHS01_f3230208e8daec53eb7b8da6df1c1d1d4eb095f3082be922661c29a1f855a1bc
+  - message_count: 30
+    topic_metadata:
+      name: /forward_camera/image_config
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: headlight_cam/msg/CameraCfg
+      type_description_hash: RIHS01_28440538b42f4a56cd6ee0de1c40a1f7708d6e34bd040b3bc16d6313fd203e62
+  - message_count: 30
+    topic_metadata:
+      name: /forward_camera/image_compressed/compressed
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: sensor_msgs/msg/CompressedImage
+      type_description_hash: RIHS01_15640771531571185e2efc8a100baf923961a4d15d5569652e6cb6691e8e371a
+  - message_count: 30
+    topic_metadata:
+      name: /right_camera/image_config
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: headlight_cam/msg/CameraCfg
+      type_description_hash: RIHS01_28440538b42f4a56cd6ee0de1c40a1f7708d6e34bd040b3bc16d6313fd203e62
+  - message_count: 30
+    topic_metadata:
+      name: /right_camera/image_compressed/compressed
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: sensor_msgs/msg/CompressedImage
+      type_description_hash: RIHS01_15640771531571185e2efc8a100baf923961a4d15d5569652e6cb6691e8e371a
+  - message_count: 30
+    topic_metadata:
+      name: /top_camera/image_config
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: headlight_cam/msg/CameraCfg
+      type_description_hash: RIHS01_28440538b42f4a56cd6ee0de1c40a1f7708d6e34bd040b3bc16d6313fd203e62
+  - message_count: 30
+    topic_metadata:
+      name: /left_camera/image_config
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: headlight_cam/msg/CameraCfg
+      type_description_hash: RIHS01_28440538b42f4a56cd6ee0de1c40a1f7708d6e34bd040b3bc16d6313fd203e62
+  - message_count: 30
+    topic_metadata:
+      name: /top_camera/image_compressed/compressed
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: sensor_msgs/msg/CompressedImage
+      type_description_hash: RIHS01_15640771531571185e2efc8a100baf923961a4d15d5569652e6cb6691e8e371a
+  - message_count: 30
+    topic_metadata:
+      name: /left_camera/image_compressed/compressed
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: sensor_msgs/msg/CompressedImage
+      type_description_hash: RIHS01_15640771531571185e2efc8a100baf923961a4d15d5569652e6cb6691e8e371a
+  - message_count: 60
+    topic_metadata:
+      name: /tf
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: tf2_msgs/msg/TFMessage
+      type_description_hash: RIHS01_e369d0f05a23ae52508854b66f6aa0437f3449d652e8cbf22d5abe85d020f087
+  - message_count: 3
+    topic_metadata:
+      name: /right_camera/camera_info
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: sensor_msgs/msg/CameraInfo
+      type_description_hash: RIHS01_b303399feda782bcc44e57b8eec9baaa9e0e5a7cd4a89fee8cffe588d6dc93ed
+  - message_count: 3
+    topic_metadata:
+      name: /top_camera/camera_info
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: sensor_msgs/msg/CameraInfo
+      type_description_hash: RIHS01_b303399feda782bcc44e57b8eec9baaa9e0e5a7cd4a89fee8cffe588d6dc93ed
+  - message_count: 3
+    topic_metadata:
+      name: /left_camera/camera_info
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: sensor_msgs/msg/CameraInfo
+      type_description_hash: RIHS01_b303399feda782bcc44e57b8eec9baaa9e0e5a7cd4a89fee8cffe588d6dc93ed
+  - message_count: 2
+    topic_metadata:
+      name: /headlightai/node_health_status
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: headlight_tools/msg/headlight_health_status
+      type_description_hash: RIHS01_daa6954f7bbc1880a1eafc2ee2258d746bb19d9eefad209da830a2db8412b9ca
+  - message_count: 3
+    topic_metadata:
+      name: /forward_camera/camera_info
+      offered_qos_profiles: ''
+      serialization_format: cdr
+      type: sensor_msgs/msg/CameraInfo
+      type_description_hash: RIHS01_b303399feda782bcc44e57b8eec9baaa9e0e5a7cd4a89fee8cffe588d6dc93ed
+  version: 8
