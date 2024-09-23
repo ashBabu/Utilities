@@ -42,11 +42,17 @@ RUN git clone https://$GIT_TOKEN@github.com/$GIT_USERNAME/$GIT_REPO_NAME.git /ho
 # Build the project (example with colcon)
 WORKDIR /home/$USERNAME/$GIT_REPO_NAME
 # Delete all except ros2_ws and cbuild.sh
-RUN find . -maxdepth 1 ! -name 'ros2_ws' ! -name 'cbuild.sh' ! -name '.' -exec rm -rf {} + 
+# RUN find . -maxdepth 1 ! -name 'ros2_ws' ! -name 'cbuild.sh' ! -name '.' -exec rm -rf {} + 
+RUN rm -rf docker_images/ .adehome .aderc .gitignore start-ade .github
+# RUN chmod +x save_map_call.sh
+USER root
+RUN chmod -R a+rwx startup.sh
+USER $USERNAME
 WORKDIR /home/$USERNAME/$GIT_REPO_NAME/ros2_ws/
 RUN bash cbuild.sh
-RUN rm -rf src
+# RUN rm -rf src
+
+RUN bash install/setup.bash
 RUN echo "source /home/$USERNAME/$GIT_REPO_NAME/ros2_ws/install/setup.bash" >> ~/.bashrc
-
-
-
+WORKDIR /home/$USERNAME/$GIT_REPO_NAME/
+CMD ["./startup.sh"]
