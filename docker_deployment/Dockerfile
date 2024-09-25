@@ -46,7 +46,7 @@ WORKDIR /home/$USERNAME/$GIT_REPO_NAME
 RUN rm -rf docker_images/ .adehome .aderc .gitignore start-ade .github
 # RUN chmod +x save_map_call.sh
 USER root
-RUN chmod -R a+rwx startup.sh
+RUN chmod -R a+rwx docker_startup.sh
 USER $USERNAME
 WORKDIR /home/$USERNAME/$GIT_REPO_NAME/ros2_ws/
 RUN bash cbuild.sh
@@ -55,4 +55,4 @@ RUN bash cbuild.sh
 RUN bash install/setup.bash
 RUN echo "source /home/$USERNAME/$GIT_REPO_NAME/ros2_ws/install/setup.bash" >> ~/.bashrc
 WORKDIR /home/$USERNAME/$GIT_REPO_NAME/
-CMD ["./startup.sh"]
+CMD ["./docker_startup.sh"]

@@ -1,10 +1,10 @@
 name: Deply_GHCR
 
 on:
-  pull_request:
-    branches: [ "ros2", "main"]
-    paths:
-      - docker_images/**
+  push:
+    branches: [ "release"]
+    # paths:
+      # - docker_images/**
     # Publish semver tags as releases.
     # tags: [ 'v*.*.*' ]
   # pull_request:
