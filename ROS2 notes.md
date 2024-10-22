@@ -40,6 +40,7 @@
 * `ros2 topic echo /device/imu/data | grep -A 4 orientation`
 ### And and Not substitution 
 * `rviz_node = Node(condition=IfCondition(AndSubstitution(NotSubstitution(run_headless), use_rviz))`
+* `run_headless` needs to be `false`. `NotSubstitution` makes it `true`, `use_rviz` needs to be `true`. `AndSubtitution(true, true)` evalues to `true` to make `rviz_node` to run
 
 * `ros2 service call /datum robot_localization/srv/SetDatum '{geo_pose: {position: {latitude: 51.507, longitude: 0.1276, altitude: 11}, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}}}'`  # for london
 
