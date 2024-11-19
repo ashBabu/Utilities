@@ -12,7 +12,7 @@ This is an example python package created to learn python packaging
   * [project.scripts]
   * `ros2image = "ros2image.ros2image_entrypoint:main"`
   where `ros2image =` can be any name that you want to call the python executable, 
-  the next `ros2image` is the name of the python package as mentioned in [pyproject.toml](pyproject.toml), 
+  the next `ros2image` is the `name` of the python package as mentioned in [pyproject.toml](https://github.com/ashBabu/Utilities/blob/master/ros2image-pkg/pyproject.toml#L6), 
   [ros2image_entrypoint](ros2image/ros2image_entrypoint.py) is the module that contain the function `main()`
 * Subdirectories can be imported as `from ros2image.utils import process_images` 
 * Sub-subdirectories can be imported as `from ros2image.utils.bag.convert import convert_to_bag` 
