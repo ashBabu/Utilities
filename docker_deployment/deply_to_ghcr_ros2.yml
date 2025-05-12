@@ -1,14 +1,8 @@
 name: Deply_GHCR
 
 on:
-  push:
-    branches: [ "release"]
-    # paths:
-      # - docker_images/**
-    # Publish semver tags as releases.
-    # tags: [ 'v*.*.*' ]
-  # pull_request:
-    # branches: [ "master" ]
+  pull_request:
+    branches: [ "release", "deploy"]
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -17,7 +11,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  build:
+  deploy-build:
 
     runs-on: ubuntu-latest
     permissions:
@@ -55,32 +49,20 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
-      # Build and push Docker image with Buildx (don't push on PR)
+      # Build and push Docker image with Buildx 
       # https://github.com/docker/build-push-action
       - name: Build and push deploy image
         id: build-and-push
         uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
         with:
-          context: .
+          context: "{{defaultContext}}:./docker_images/deploy-image/deploy/"
           platforms: |-
             linux/amd64
       #      linux/arm64
-          file: ./docker_images/deploy-image/Dockerfile
+          file: Dockerfile
           push: true
           build-args: |-
-            GIT_REPO_NAME=headlight-slam
-            # GIT_TOKEN=${{ secrets.GITHUB_TOKEN }}
+            GIT_REPO_NAME=telesto-ros2
             GIT_TOKEN=${{ secrets.GH_TOKEN }}
             GIT_USERNAME=headlightai
-          tags: ghcr.io/headlightai/slam-ros2-deploy:latest
-
-      - name: Build and push development image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          platforms: |-
-            linux/amd64
-      #      linux/arm64
-          file: ./docker_images/devel-image/Dockerfile
-          push: true
-          tags: ghcr.io/headlightai/slam-ros2-devel:latest
+          tags: ghcr.io/headlightai/telesto-ros2-deploy:latest
