@@ -1,0 +1,60 @@
+Manhole1:
+  start_coordinate: [0.0, 0.0, 0.0]
+  outer_diameter: 3.0
+  height: 1.7
+  wall_thickness: 0.2
+  floor_thickness: 0.3
+
+Manhole2:
+  start_coordinate: [8.0, 8.0, 0.0]
+  outer_diameter: 3.0
+  height: 1.7
+  wall_thickness: 0.2
+  floor_thickness: 0.3
+
+Pipe1:
+  manhole: Manhole1
+  entry_depth: 1.2
+  segment_length: 3.0
+  segment_count: 3
+  socket_length: 0.1  # The bulged end of the pipe to incorporate the next one
+  gradient: 1/300
+  outer_diameter: 1.0
+  wall_thickness: 0.025
+  angle: 180
+  outgoing: False
+
+# Pipe2:
+#   manhole: Manhole1
+#   entry_depth: 1.2
+#   segment_length: 4.0
+#   segment_count: 3
+#   socket_length: 0.1  # The bulged end of the pipe to incorporate the next one
+#   gradient: 1/300
+#   outer_diameter: 0.8
+#   wall_thickness: 0.025
+#   angle: 45
+#   outgoing: True
+
+Pipe3:
+  manhole: Manhole1
+  entry_depth: 1.2
+  segment_length: 2.0
+  segment_count: 3
+  socket_length: 0.1  # The bulged end of the pipe to incorporate the next one
+  gradient: 1/300
+  outer_diameter: 0.5
+  wall_thickness: 0.025
+  angle: 0
+  outgoing: True
+
+Pipe4:
+  between: [Manhole1, Manhole2]    # water flows from Manhole1 to Manhole2
+  entry_depth: 1.2                 # depth of the pipe's centre line at Manhole1
+  segment_length: 1.0
+  socket_length: 0.1
+  gradient: 1/300
+  outer_diameter: 0.8
+  wall_thickness: 0.025
+
+
